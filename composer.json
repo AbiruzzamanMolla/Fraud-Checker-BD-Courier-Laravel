@@ -1,0 +1,65 @@
+{
+  "name": "azmolla/fraud-checker-bd-courier",
+  "description": "A fraud detection tool for e-commerce platforms to analyze customer order behavior across Steadfast, RedX and Pathao couriers.",
+  "type": "library",
+  "license": "GPL-3.0",
+  "keywords": [
+    "fraud detection",
+    "courier bangladesh",
+    "fraud checker",
+    "pathao",
+    "steadfast courier",
+    "redx",
+    "fraud prevention",
+    "e-commerce fraud",
+    "order status",
+    "API integration"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Azmolla\\FraudCheckerBdCourier\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Azmolla\\FraudCheckerBdCourier\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Azmolla\\FraudCheckerBdCourier\\FraudCheckerBdCourierServiceProvider"
+      ],
+      "aliases": {
+        "FraudCheckerBdCourier": "Azmolla\\FraudCheckerBdCourier\\Facade\\FraudCheckerBdCourierFacade"
+      }
+    }
+  },
+  "publisher": "azmolla",
+  "authors": [
+    {
+      "name": "Abiruzzaman Molla",
+      "email": "abiruzzaman.molla@gmail.com",
+      "role": "Backend Developer"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbiruzzamanMolla/Fraud-Checker-BD-Courier-Laravel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AbiruzzamanMolla/Fraud-Checker-BD-Courier-Laravel/issues"
+  },
+  "homepage": "https://github.com/AbiruzzamanMolla/Fraud-Checker-BD-Courier-Laravel",
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^8.2.0",
+    "illuminate/support": "^10.0|^11.0|^12.0",
+    "illuminate/http": "^10.0|^11.0|^12.0",
+    "guzzlehttp/guzzle": "^7.8"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0|^10.0",
+    "phpunit/phpunit": "^10.5|^11.0"
+  }
+}
