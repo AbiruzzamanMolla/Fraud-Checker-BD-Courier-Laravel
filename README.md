@@ -29,7 +29,7 @@ By checking a simple phone number, you get immediate insights into a customer's 
 ## 💻 Requirements
 
 - **PHP:** `^8.2.0`
-- **Laravel:** `10.x`, `11.x`, or `12.x`
+- **Laravel:** `10.x`, `11.x`, `12.x`, or `13.x`
 - **Guzzle:** `^7.8`
 
 ---
