@@ -2,10 +2,10 @@
   <h1>🛡️ Fraud-Checker-BD-Courier-Laravel</h1>
   <p><strong>A powerful Laravel package to analyze customer delivery behavior across top Bangladeshi courier services.</strong></p>
   
-  [![Latest Version on Packagist](https://img.shields.io/packagist/v/azmolla/fraud-checker-bd-courier.svg?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier)
-  [![Total Downloads](https://img.shields.io/packagist/dt/azmolla/fraud-checker-bd-courier.svg?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier)
-  [![License](https://img.shields.io/packagist/l/azmolla/fraud-checker-bd-courier.svg?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier)
-  [![PHP Version Require](https://img.shields.io/packagist/php-v/azmolla/fraud-checker-bd-courier?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier)
+  [![Latest Version on Packagist](https://img.shields.io/packagist/v/azmolla/fraud-checker-bd-courier-laravel.svg?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier-laravel)
+  [![Total Downloads](https://img.shields.io/packagist/dt/azmolla/fraud-checker-bd-courier-laravel.svg?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier-laravel)
+  [![License](https://img.shields.io/packagist/l/azmolla/fraud-checker-bd-courier-laravel.svg?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier-laravel)
+  [![PHP Version Require](https://img.shields.io/packagist/php-v/azmolla/fraud-checker-bd-courier-laravel?style=flat-square)](https://packagist.org/packages/azmolla/fraud-checker-bd-courier-laravel)
 </div>
 
 ---

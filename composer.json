@@ -1,5 +1,5 @@
 {
-  "name": "azmolla/fraud-checker-bd-courier",
+  "name": "azmolla/fraud-checker-bd-courier-laravel",
   "description": "A fraud detection tool for e-commerce platforms to analyze customer order behavior across Steadfast, RedX and Pathao couriers.",
   "type": "library",
   "license": "GPL-3.0",
@@ -54,12 +54,12 @@
   "minimum-stability": "dev",
   "require": {
     "php": "^8.2.0",
-    "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
-    "illuminate/http": "^8.0|^9.0|^10.0|^11.0|^12.0|^13.0",
+    "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+    "illuminate/http": "^10.0|^11.0|^12.0|^13.0",
     "guzzlehttp/guzzle": "^7.8"
   },
   "require-dev": {
-    "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0|^10.0|^11.0",
-    "phpunit/phpunit": "^9.5.10|^10.5|^11.0"
+    "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+    "phpunit/phpunit": "^10.5|^11.0"
   }
 }
