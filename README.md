@@ -12,13 +12,13 @@
 
 ## 📌 Introduction
 
-E-commerce businesses in Bangladesh often face significant losses due to fraudulent orders and high return rates. **Fraud-Checker-BD-Courier-Laravel** protects your bottom line by instantly analyzing a customer's track record across major logistics providers (**Steadfast**, **Pathao**, and **RedX**).
+E-commerce businesses in Bangladesh often face significant losses due to fraudulent orders and high return rates. **Fraud-Checker-BD-Courier-Laravel** protects your bottom line by instantly analyzing a customer's track record across major logistics providers (**Steadfast**, **Pathao**, **RedX**, and **Paperfly**).
 
 By checking a simple phone number, you get immediate insights into a customer's success and cancellation ratios, helping you decide whether to approve, verify, or reject cash-on-delivery (COD) shipments.
 
 ## 🎯 Key Capabilities
 
-- 🔍 **Multi-Courier Analytics:** Fetch delivery histories simultaneously from Steadfast, Pathao, and RedX.
+- 🔍 **Multi-Courier Analytics:** Fetch delivery histories simultaneously from Steadfast, Pathao, RedX, and Paperfly.
 - 📊 **Aggregated Statistics:** Get a unified view of total deliveries, successes, cancellations, and percentages.
 - 📱 **Smart Number Validation:** Built-in strictly enforced validation for standard Bangladeshi mobile numbers (e.g., `017XXXXXXXX`).
 - 🏗️ **SOLID Architecture:** Highly decoupled under the hood. You can easily interact with individual couriers thanks to strict contract implementations.
@@ -71,6 +71,10 @@ STEADFAST_PASSWORD="your_steadfast_password"
 # Use your registered phone number (without +880, e.g., 01*********)
 REDX_PHONE="your_redx_login_phone_number"
 REDX_PASSWORD="your_redx_password"
+
+# Paperfly Credentials
+PAPERFLY_USER="your_paperfly_username"
+PAPERFLY_PASSWORD="your_paperfly_password"
 ```
 
 ---
@@ -101,14 +105,15 @@ The package returns a highly structured array indicating individual and aggregat
     'steadfast' => ['success' => 3, 'cancel' => 1, 'total' => 4, 'success_ratio' => 75.0],
     'pathao'    => ['success' => 5, 'cancel' => 2, 'total' => 7, 'success_ratio' => 71.43],
     'redx'      => ['success' => 20, 'cancel' => 5, 'total' => 25, 'success_ratio' => 80.0],
+    'paperfly'  => ['success' => 0, 'cancel' => 0, 'total' => 1, 'success_ratio' => 0.0],
 
     // The summary across all supported couriers
     'aggregate' => [
         'total_success'    => 28,
         'total_cancel'     => 8,
-        'total_deliveries' => 36,
-        'success_ratio'    => 77.78,
-        'cancel_ratio'     => 22.22
+        'total_deliveries' => 37,
+        'success_ratio'    => 75.67,
+        'cancel_ratio'     => 21.62
     ]
 ]
 ```
@@ -127,10 +132,12 @@ If you only need to run analytics against a single courier, avoid the Facade ove
 use Azmolla\FraudCheckerBdCourier\Services\PathaoService;
 use Azmolla\FraudCheckerBdCourier\Services\SteadfastService;
 use Azmolla\FraudCheckerBdCourier\Services\RedxService;
+use Azmolla\FraudCheckerBdCourier\Services\PaperflyService;
 
 $steadfastData = (new SteadfastService())->getDeliveryStats('01*********');
 $redxData      = (new RedxService())->getDeliveryStats('01*********');
 $pathaoData    = (new PathaoService())->getDeliveryStats('01*********');
+$paperflyData  = (new PaperflyService())->getDeliveryStats('01*********');
 ```
 
 ---
@@ -182,4 +189,8 @@ Special thanks to **[S. Ahmad](https://github.com/ShahariarAhmad)** for the init
 <br/>
 <div align="center">
   <i>If you find this package helpful in fighting fraudulent orders, please consider starring the repository! ⭐</i>
+  <br/><br/>
+  <a href="https://www.supportkori.com/abiruzzaman" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
+  </a>
 </div>

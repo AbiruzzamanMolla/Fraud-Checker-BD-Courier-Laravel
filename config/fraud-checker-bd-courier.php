@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return [
     'pathao' => [
@@ -15,6 +15,9 @@ return [
         'user' => env('STEADFAST_USER'),
         'password' => env('STEADFAST_PASSWORD'),
     ],
-];
 
-?>
+    'paperfly' => [
+        'user' => env('PAPERFLY_USER'),
+        'password' => env('PAPERFLY_PASSWORD'),
+    ],
+];
