@@ -1,6 +1,6 @@
 {
   "name": "azmolla/fraud-checker-bd-courier-laravel",
-  "description": "A fraud detection tool for e-commerce platforms to analyze customer order behavior across Steadfast, RedX and Pathao couriers.",
+  "description": "A fraud detection tool for e-commerce platforms to analyze customer order behavior across Steadfast, RedX, Pathao, and Paperfly couriers.",
   "type": "library",
   "license": "GPL-3.0",
   "keywords": [
@@ -10,6 +10,7 @@
     "pathao",
     "steadfast courier",
     "redx",
+    "paperfly",
     "fraud prevention",
     "e-commerce fraud",
     "order status",

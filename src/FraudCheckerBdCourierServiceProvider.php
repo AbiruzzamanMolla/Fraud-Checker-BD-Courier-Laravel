@@ -8,6 +8,8 @@ use Azmolla\FraudCheckerBdCourier\Services\PathaoService;
 use Azmolla\FraudCheckerBdCourier\Services\RedxService;
 use Azmolla\FraudCheckerBdCourier\FraudCheckerBdCourierManager;
 
+use Azmolla\FraudCheckerBdCourier\Services\PaperflyService;
+
 /**
  * Class FraudCheckerBdCourierServiceProvider
  *
@@ -46,7 +48,8 @@ class FraudCheckerBdCourierServiceProvider extends ServiceProvider
             return new FraudCheckerBdCourierManager(
                 $app->make(SteadfastService::class),
                 $app->make(PathaoService::class),
-                $app->make(RedxService::class)
+                $app->make(RedxService::class),
+                $app->make(PaperflyService::class)
             );
         });
     }
