@@ -3,6 +3,7 @@
 namespace Azmolla\FraudCheckerBdCourier;
 
 use Azmolla\FraudCheckerBdCourier\Contracts\CourierServiceInterface;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class FraudCheckerBdCourierManager
@@ -76,6 +77,12 @@ class FraudCheckerBdCourierManager
                     $totalCancelCount += (int)$stats['cancel'];
                 }
             } catch (\Exception $e) {
+                Log::error("FraudCheckerBdCourier: {$key} service failed.", [
+                    'message' => $e->getMessage(),
+                    'phone' => $phoneNumber,
+                    'trace' => $e->getTraceAsString(),
+                ]);
+
                 $payload[$key] = [
                     'error' => 'Service unavailable or failed to process',
                     'message' => $e->getMessage()

@@ -21,6 +21,7 @@ By checking a simple phone number, you get immediate insights into a customer's 
 - 🔍 **Multi-Courier Analytics:** Fetch delivery histories simultaneously from Steadfast, Pathao, RedX, Paperfly, and Carrybee.
 - 📊 **Aggregated Statistics:** Get a unified view of total deliveries, successes, cancellations, and percentages.
 - 📱 **Smart Number Validation:** Built-in strictly enforced validation for standard Bangladeshi mobile numbers (e.g., `017XXXXXXXX`).
+- 📝 **Automated Error Logging:** Exceptions from any courier service are automatically logged into Laravel's default log file without breaking the main flow.
 - 🏗️ **SOLID Architecture:** Highly decoupled under the hood. You can easily interact with individual couriers thanks to strict contract implementations.
 - ⚡ **Developer Friendly:** Simple Facade access and effortless Laravel integration.
 
