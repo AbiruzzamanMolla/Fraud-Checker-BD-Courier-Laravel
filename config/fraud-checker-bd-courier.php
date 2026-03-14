@@ -20,4 +20,8 @@ return [
         'user' => env('PAPERFLY_USER'),
         'password' => env('PAPERFLY_PASSWORD'),
     ],
+    'carrybee' => [
+        'phone' => env('CARRYBEE_PHONE'),
+        'password' => env('CARRYBEE_PASSWORD'),
+    ],
 ];

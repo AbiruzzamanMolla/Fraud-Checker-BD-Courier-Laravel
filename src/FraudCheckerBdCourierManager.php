@@ -3,6 +3,7 @@
 namespace Azmolla\FraudCheckerBdCourier;
 
 use Azmolla\FraudCheckerBdCourier\Contracts\CourierServiceInterface;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class FraudCheckerBdCourierManager
@@ -28,6 +29,7 @@ class FraudCheckerBdCourierManager
         protected readonly CourierServiceInterface $pathaoService,
         protected readonly CourierServiceInterface $redxService,
         protected readonly CourierServiceInterface $paperflyService,
+        protected readonly CourierServiceInterface $carrybeeService,
     ) {}
 
     /**
@@ -44,6 +46,7 @@ class FraudCheckerBdCourierManager
             'pathao' => null,
             'redx' => null,
             'paperfly' => null,
+            'carrybee' => null,
             'aggregate' => [
                 'total_success' => 0,
                 'total_cancel' => 0,
@@ -58,6 +61,7 @@ class FraudCheckerBdCourierManager
             'pathao' => $this->pathaoService,
             'redx' => $this->redxService,
             'paperfly' => $this->paperflyService,
+            'carrybee' => $this->carrybeeService,
         ];
 
         $totalSuccessCount = 0;
@@ -73,6 +77,12 @@ class FraudCheckerBdCourierManager
                     $totalCancelCount += (int)$stats['cancel'];
                 }
             } catch (\Exception $e) {
+                Log::error("FraudCheckerBdCourier: {$key} service failed.", [
+                    'message' => $e->getMessage(),
+                    'phone' => $phoneNumber,
+                    'trace' => $e->getTraceAsString(),
+                ]);
+
                 $payload[$key] = [
                     'error' => 'Service unavailable or failed to process',
                     'message' => $e->getMessage()

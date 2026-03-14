@@ -37,18 +37,36 @@ class FraudCheckerBdCourierManagerTest extends TestCase
             'success_ratio' => 80.0,
         ]);
 
-        $manager = new FraudCheckerBdCourierManager($steadfastMock, $pathaoMock, $redxMock);
+        $paperflyMock = Mockery::mock(CourierServiceInterface::class);
+        $paperflyMock->shouldReceive('getDeliveryStats')->once()->with($phone)->andReturn([
+            'success' => 0,
+            'cancel' => 0,
+            'total' => 1,
+            'success_ratio' => 0.0,
+        ]);
+
+        $carrybeeMock = Mockery::mock(CourierServiceInterface::class);
+        $carrybeeMock->shouldReceive('getDeliveryStats')->once()->with($phone)->andReturn([
+            'success' => 10,
+            'cancel' => 0,
+            'total' => 10,
+            'success_ratio' => 100.0,
+        ]);
+
+        $manager = new FraudCheckerBdCourierManager($steadfastMock, $pathaoMock, $redxMock, $paperflyMock, $carrybeeMock);
         $result = $manager->check($phone);
 
-        $this->assertEquals(35, $result['aggregate']['total_success']);
+        $this->assertEquals(45, $result['aggregate']['total_success']);
         $this->assertEquals(10, $result['aggregate']['total_cancel']);
-        $this->assertEquals(45, $result['aggregate']['total_deliveries']);
-        $this->assertEquals(77.78, $result['aggregate']['success_ratio']);
-        $this->assertEquals(22.22, $result['aggregate']['cancel_ratio']);
+        $this->assertEquals(55, $result['aggregate']['total_deliveries']);
+        $this->assertEquals(81.82, $result['aggregate']['success_ratio']); // 45/55 * 100
+        $this->assertEquals(18.18, $result['aggregate']['cancel_ratio']); // 10/55 * 100
 
         $this->assertEquals(7, $result['steadfast']['total']);
         $this->assertEquals(13, $result['pathao']['total']);
         $this->assertEquals(25, $result['redx']['total']);
+        $this->assertEquals(1, $result['paperfly']['total']);
+        $this->assertEquals(10, $result['carrybee']['total']);
     }
 
     public function test_manager_handles_exceptions_gracefully()
@@ -71,7 +89,20 @@ class FraudCheckerBdCourierManagerTest extends TestCase
             'error' => 'Login Failed',
         ]);
 
-        $manager = new FraudCheckerBdCourierManager($steadfastMock, $pathaoMock, $redxMock);
+        $paperflyMock = Mockery::mock(CourierServiceInterface::class);
+        $paperflyMock->shouldReceive('getDeliveryStats')->once()->with($phone)->andReturn([
+            'success' => 0,
+            'cancel' => 0,
+            'total' => 1,
+            'success_ratio' => 0.0,
+        ]);
+
+        $carrybeeMock = Mockery::mock(CourierServiceInterface::class);
+        $carrybeeMock->shouldReceive('getDeliveryStats')->once()->with($phone)->andReturn([
+            'error' => 'API Error',
+        ]);
+
+        $manager = new FraudCheckerBdCourierManager($steadfastMock, $pathaoMock, $redxMock, $paperflyMock, $carrybeeMock);
         $result = $manager->check($phone);
 
         $this->assertEquals(10, $result['aggregate']['total_success']);

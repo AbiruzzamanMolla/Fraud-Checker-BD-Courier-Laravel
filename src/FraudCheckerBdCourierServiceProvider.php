@@ -9,6 +9,7 @@ use Azmolla\FraudCheckerBdCourier\Services\RedxService;
 use Azmolla\FraudCheckerBdCourier\FraudCheckerBdCourierManager;
 
 use Azmolla\FraudCheckerBdCourier\Services\PaperflyService;
+use Azmolla\FraudCheckerBdCourier\Services\CarrybeeService;
 
 /**
  * Class FraudCheckerBdCourierServiceProvider
@@ -49,7 +50,8 @@ class FraudCheckerBdCourierServiceProvider extends ServiceProvider
                 $app->make(SteadfastService::class),
                 $app->make(PathaoService::class),
                 $app->make(RedxService::class),
-                $app->make(PaperflyService::class)
+                $app->make(PaperflyService::class),
+                $app->make(CarrybeeService::class)
             );
         });
     }

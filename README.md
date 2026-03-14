@@ -12,15 +12,16 @@
 
 ## 📌 Introduction
 
-E-commerce businesses in Bangladesh often face significant losses due to fraudulent orders and high return rates. **Fraud-Checker-BD-Courier-Laravel** protects your bottom line by instantly analyzing a customer's track record across major logistics providers (**Steadfast**, **Pathao**, **RedX**, and **Paperfly**).
+E-commerce businesses in Bangladesh often face significant losses due to fraudulent orders and high return rates. **Fraud-Checker-BD-Courier-Laravel** protects your bottom line by instantly analyzing a customer's track record across major logistics providers (**Steadfast**, **Pathao**, **RedX**, **Paperfly**, and **Carrybee**).
 
 By checking a simple phone number, you get immediate insights into a customer's success and cancellation ratios, helping you decide whether to approve, verify, or reject cash-on-delivery (COD) shipments.
 
 ## 🎯 Key Capabilities
 
-- 🔍 **Multi-Courier Analytics:** Fetch delivery histories simultaneously from Steadfast, Pathao, RedX, and Paperfly.
+- 🔍 **Multi-Courier Analytics:** Fetch delivery histories simultaneously from Steadfast, Pathao, RedX, Paperfly, and Carrybee.
 - 📊 **Aggregated Statistics:** Get a unified view of total deliveries, successes, cancellations, and percentages.
 - 📱 **Smart Number Validation:** Built-in strictly enforced validation for standard Bangladeshi mobile numbers (e.g., `017XXXXXXXX`).
+- 📝 **Automated Error Logging:** Exceptions from any courier service are automatically logged into Laravel's default log file without breaking the main flow.
 - 🏗️ **SOLID Architecture:** Highly decoupled under the hood. You can easily interact with individual couriers thanks to strict contract implementations.
 - ⚡ **Developer Friendly:** Simple Facade access and effortless Laravel integration.
 
@@ -75,6 +76,10 @@ REDX_PASSWORD="your_redx_password"
 # Paperfly Credentials
 PAPERFLY_USER="your_paperfly_username"
 PAPERFLY_PASSWORD="your_paperfly_password"
+
+# Carrybee Credentials
+CARRYBEE_PHONE="your_carrybee_phone"
+CARRYBEE_PASSWORD="your_carrybee_password"
 ```
 
 ---
@@ -106,14 +111,15 @@ The package returns a highly structured array indicating individual and aggregat
     'pathao'    => ['success' => 5, 'cancel' => 2, 'total' => 7, 'success_ratio' => 71.43],
     'redx'      => ['success' => 20, 'cancel' => 5, 'total' => 25, 'success_ratio' => 80.0],
     'paperfly'  => ['success' => 0, 'cancel' => 0, 'total' => 1, 'success_ratio' => 0.0],
+    'carrybee'  => ['success' => 10, 'cancel' => 0, 'total' => 10, 'success_ratio' => 100.0],
 
     // The summary across all supported couriers
     'aggregate' => [
-        'total_success'    => 28,
+        'total_success'    => 38,
         'total_cancel'     => 8,
-        'total_deliveries' => 37,
-        'success_ratio'    => 75.67,
-        'cancel_ratio'     => 21.62
+        'total_deliveries' => 47,
+        'success_ratio'    => 80.85,
+        'cancel_ratio'     => 17.02
     ]
 ]
 ```
@@ -133,11 +139,13 @@ use Azmolla\FraudCheckerBdCourier\Services\PathaoService;
 use Azmolla\FraudCheckerBdCourier\Services\SteadfastService;
 use Azmolla\FraudCheckerBdCourier\Services\RedxService;
 use Azmolla\FraudCheckerBdCourier\Services\PaperflyService;
+use Azmolla\FraudCheckerBdCourier\Services\CarrybeeService;
 
 $steadfastData = (new SteadfastService())->getDeliveryStats('01*********');
 $redxData      = (new RedxService())->getDeliveryStats('01*********');
 $pathaoData    = (new PathaoService())->getDeliveryStats('01*********');
 $paperflyData  = (new PaperflyService())->getDeliveryStats('01*********');
+$carrybeeData  = (new CarrybeeService())->getDeliveryStats('01*********');
 ```
 
 ---
@@ -174,7 +182,7 @@ composer test
 
 ## 🙏 Acknowledgments
 
-Special thanks to **[S. Ahmad](https://github.com/ShahariarAhmad)** for the initial inspiration and discovering the API endpoints.
+Special thanks to **[S. Ahmad](https://github.com/ShahariarAhmad)** for the initial inspiration and discovering the API endpoints of Steadfast, Pathao.
 
 ---
 
