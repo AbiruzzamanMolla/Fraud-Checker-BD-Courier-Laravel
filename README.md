@@ -182,7 +182,7 @@ composer test
 
 ## 🙏 Acknowledgments
 
-Special thanks to **[S. Ahmad](https://github.com/ShahariarAhmad)** for the initial inspiration and discovering the API endpoints.
+Special thanks to **[S. Ahmad](https://github.com/ShahariarAhmad)** for the initial inspiration and discovering the API endpoints of Steadfast, Pathao.
 
 ---
 
