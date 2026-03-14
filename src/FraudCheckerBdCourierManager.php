@@ -25,11 +25,11 @@ class FraudCheckerBdCourierManager
      * @param CourierServiceInterface $redxService      Instance of RedxService.
      */
     public function __construct(
-        protected readonly CourierServiceInterface $steadfastService,
-        protected readonly CourierServiceInterface $pathaoService,
-        protected readonly CourierServiceInterface $redxService,
-        protected readonly CourierServiceInterface $paperflyService,
-        protected readonly CourierServiceInterface $carrybeeService,
+        protected CourierServiceInterface $steadfastService,
+        protected CourierServiceInterface $pathaoService,
+        protected CourierServiceInterface $redxService,
+        protected CourierServiceInterface $paperflyService,
+        protected CourierServiceInterface $carrybeeService,
     ) {}
 
     /**
