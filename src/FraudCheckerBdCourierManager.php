@@ -28,6 +28,7 @@ class FraudCheckerBdCourierManager
         protected readonly CourierServiceInterface $pathaoService,
         protected readonly CourierServiceInterface $redxService,
         protected readonly CourierServiceInterface $paperflyService,
+        protected readonly CourierServiceInterface $carrybeeService,
     ) {}
 
     /**
@@ -44,6 +45,7 @@ class FraudCheckerBdCourierManager
             'pathao' => null,
             'redx' => null,
             'paperfly' => null,
+            'carrybee' => null,
             'aggregate' => [
                 'total_success' => 0,
                 'total_cancel' => 0,
@@ -58,6 +60,7 @@ class FraudCheckerBdCourierManager
             'pathao' => $this->pathaoService,
             'redx' => $this->redxService,
             'paperfly' => $this->paperflyService,
+            'carrybee' => $this->carrybeeService,
         ];
 
         $totalSuccessCount = 0;
