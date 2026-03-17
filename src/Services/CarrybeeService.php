@@ -149,7 +149,7 @@ class CarrybeeService implements CourierServiceInterface
             $accessToken = $authData['accessToken'];
             $businessId = $authData['businessId'];
 
-            // Format phone to 01xxxxxxxxx as per the screenshot URL ending
+            // Format phone to 01xxxxxxxxx as per the screenshot URL ending (i saw this, don't eat my brain)
             $cleanPhone = preg_replace('/^(?:\+?88)?(01[3-9]\d{8})$/', '$1', $phoneNumber);
 
             if (empty($cleanPhone) || strlen($cleanPhone) !== 11) {
