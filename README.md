@@ -196,7 +196,7 @@ Special thanks to **[S. Ahmad](https://github.com/ShahariarAhmad)** for the init
 
 <br/>
 <div align="center">
-  <i>If you find this package helpful in fighting fraudulent orders, please consider starring the repository! ⭐</i>
+  <i>If you find this package helpful in fighting fraudulent orders, please consider starring the repository! ⭐ I hate arguing. If you have something to contribute or improve, please fork the repository, make your edits, and then submit a pull request.</i>
   <br/><br/>
   <a href="https://www.supportkori.com/abiruzzaman" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50">
